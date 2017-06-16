@@ -19,9 +19,9 @@ int main()
     map_set(simple_new_arg, "b", value);
 
     // Create simple object
-    Object* simple = create_object("Simple", simple_new_arg);
+    Object* Simple = create_object("Simple", simple_new_arg);
 
-    // Build an argument with data
+    // Build argument for doSomething
     float data[] = {1.0, 2.0, 3.0, 4.0};
     Object* dataPtr = create_ptr((data));
     Object* dataLen = create_int(sizeof(data)/sizeof(float));
@@ -29,5 +29,22 @@ int main()
     map_set(simple_arg, "data", dataPtr);
     map_set(simple_arg, "len", dataLen);
 
-    object_call(simple, "doSomething", simple_arg);
+    // Call doSomething
+    object_call(Simple, "doSomething", simple_arg);
+
 }
+
+/* Output of the code:
+
+    Registering object factory for Simple
+    Executing the simple code
+    Hello from simple
+    Arguments:
+     a:
+       Hello
+       World
+      b: 5
+    Simple: Do Something
+      {1.000000 2.000000 3.000000 4.000000 }
+
+*/

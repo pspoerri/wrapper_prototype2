@@ -1,0 +1,5 @@
+class Argument
+{
+public:
+    Argument();
+};
